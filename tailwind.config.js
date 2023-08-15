@@ -40,6 +40,13 @@ module.exports = {
         800: '#332E38',
         900: '#1F1C22'
       },
+      blue: {
+        DEFAULT: '#1b0c51'
+      },
+      pink: {
+        DEFAULT: '#bd2266',
+        light: '#fa6e92'
+      },
       white: colors.white
     },
     extend: {
