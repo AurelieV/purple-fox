@@ -25,14 +25,15 @@
           <h2 class="decorate bg-blue p-2 text-white mb-2 rounded-t text-center -mx-2 sm:-mx-3">{{ section.title }}</h2>
           <p>{{ section.description }}</p>
           <div class="mt-auto pt-2 flex mx-auto space-x-2">
-            <a
+            <component
               v-for="(cta, index) in section.ctas"
               :key="index"
-              :href="cta.link"
-              class="bg-pink hover:bg-pink-light border active:border-pink active:text-pink active:bg-transparent block text-white rounded px-2 py-1 text-center transition-colors"
+              :is="cta.link.is"
+              v-bind="cta.link"
+              class="bg-pink select-none cursor-pointer hover:bg-pink-light border active:border-pink active:text-pink active:bg-transparent block text-white rounded px-2 py-1 text-center transition-colors"
             >
               {{ cta.label }}
-            </a>
+            </component>
           </div>
         </li>
       </ul>
@@ -55,45 +56,51 @@ const sections = [
     description:
       "Embark on a journey with our tools, guiding judges and stage managers through the art of wrapping up rounds. Choose the correct instance – USA or Europe – for the best realtime performance. Looking to host a tournament? Our Discord is the portal for that. We're all ears, accommodating various TCG licenses and software preferences.",
     ctas: [
-      { label: 'US server', link: 'https://discord.example/tournament' },
-      { label: 'EU server', link: 'https://discord.example/tournament' }
+      { label: 'US server', link: { href: 'https://eor-us.purple-fox.fr', is: 'a', target: '_blank' } },
+      { label: 'EU server', link: { href: 'https://eor.purple-fox.fr', is: 'a', target: '_blank' } }
     ]
   },
   {
     title: 'Crafting Tournament Logistics',
     description:
       "Step into the realm of logistics, where tools like brackets for Top 8 and on-the-fly sealed construction tables generators await your command. It's like having magical tools at your fingertips. Don't just stand there – take a peek and let your tourneys be the talk of the town.",
-    ctas: [{ label: 'Discover Logistics Magic', link: 'https://example.com/logistics' }]
+    ctas: [{ label: 'Discover Logistics Magic', link: { is: 'router-link', to: { name: 'tools' } } }]
   },
   {
     title: 'Elevate Your Coverage Game',
     description:
       "Attention coverage enthusiasts! Unleash the magic of specialized tools, tailor-made for Flesh and Blood events (We're open to expanding to other TCGs, contact us for more information). Content creators, drop by for a chat on Discord if you need an access. Only requirement is to put our little purple fox logo somewhere if you use our tools :)",
-    ctas: [{ label: 'Discover coverage', link: 'https://discord.example/coverage' }]
+    ctas: [
+      { label: 'Discover coverage', link: { is: 'a', href: 'https://eor.purple-fox.fr/coverage', target: '_blank' } }
+    ]
   },
   {
     title: 'Mastery in Stage Management',
     description:
       'Calling all stage commanders! Our arsenal of tools will aid you in taming the roaring beast that is big tournament stage management. From gathering prize tix to wrangling staff, our dashboard has you covered. Embrace the tools and conquer those stages!',
-    ctas: [{ label: 'Conquer Stages with Us', link: 'https://example.com/stage' }]
+    ctas: [
+      { label: 'Conquer Stages with Us', link: { is: 'a', href: 'https://eor.purple-fox.fr/stage', target: '_blank' } }
+    ]
   },
   {
     title: "Flesh and Blood's calendar",
     description:
       "Stay attuned to the rhythm of Flesh and Blood events with our dedicated calendar. It's like having a magical time-turner to all the happenings in the realm.",
-    ctas: [{ label: 'Explore the Calendar', link: 'https://example.com/calendar' }]
+    ctas: [
+      { label: 'Explore the Calendar', link: { is: 'a', href: 'https://calendar.loeildophidia.fr/', target: '_blank' } }
+    ]
   },
   {
     title: 'Embark on a Documentation Quest',
     description:
       "Venture into our comprehensive documentation, a treasure trove for the curious and brave. If you're feeling adventurous, contribute to our repositories – find your path through our Discord guides.",
-    ctas: [{ label: 'Go to documentation', link: 'https://docs.example/tool' }]
+    ctas: [{ label: 'Go to documentation', link: { is: 'a', href: 'https://eor.purple-fox.fr' }, target: '_blank' }]
   },
   {
     title: 'Reporting Bugs and Beyond',
     description:
       'Encountered bugs? Fear not, our troubleshooters are at your service. Got an idea to enhance the enchantment? Join our fellowship of open-source sorcerers on Discord. The path to contribution is open, so let the journey begin.',
-    ctas: [{ label: 'Join the Discord', link: 'https://discord.example/contributions' }]
+    ctas: [{ label: 'Join the Discord', link: { is: 'a', href: 'https://discord.gg/rSRcxMySEF' }, target: '_blank' }]
   }
 ]
 </script>
