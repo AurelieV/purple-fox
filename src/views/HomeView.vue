@@ -1,36 +1,36 @@
 <template>
   <main class="text-sm md:text-md">
     <section class="relative">
-      <img src="/src/assets/home_background.jpg" />
+      <img src="/src/assets/home_background.jpg" class="w-full" />
       <div
         class="absolute py-2 top-[5%] left-[5%] md:top-[30%] md:left-[10%] py-4 rounded w-[12ch] text-center text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold text-white backdrop-blur-sm"
       >
         <h1>Welcome to PurpleFox</h1>
       </div>
     </section>
-    <section id="under-hero" class="px-2 sm:px-4 pt-1 pb-2 text-center text-white">
+    <section id="under-hero" class="px-2 pt-1 pb-2 text-center text-white sm:px-4">
       <p>PurpleFox is your all-in-one solution for seamless tournament management</p>
       <p class="mx-auto max-w-[60ch]">
         From end of round management, prize support and real-time coverage, PurpleFox has you covered. Join our
         community and elevate your tournament experience today.
       </p>
     </section>
-    <section class="max-w-screen-lg px-2 mx-auto pt-4 md:pt-8">
-      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 mt-2 pb-4">
+    <section class="max-w-screen-lg px-2 pt-4 mx-auto md:pt-8">
+      <ul class="grid grid-cols-1 gap-2 pb-4 mt-2 sm:grid-cols-2 md:grid-cols-3 sm:gap-4">
         <li
           v-for="(section, index) in sections"
           :key="index"
-          class="rounded shadow-lg px-2 pt-2 pb-3 sm:px-4 flex flex-col"
+          class="flex flex-col px-2 pt-2 pb-3 rounded shadow-lg sm:px-4"
         >
-          <h2 class="decorate bg-blue p-2 text-white mb-2 rounded-t text-center -mx-2 sm:-mx-3">{{ section.title }}</h2>
+          <h2 class="p-2 mb-2 -mx-2 text-center text-white rounded-t decorate bg-blue sm:-mx-3">{{ section.title }}</h2>
           <p>{{ section.description }}</p>
-          <div class="mt-auto pt-2 flex mx-auto space-x-2">
+          <div class="flex pt-2 mx-auto mt-auto space-x-2">
             <component
               v-for="(cta, index) in section.ctas"
               :key="index"
               :is="cta.link.is"
               v-bind="cta.link"
-              class="bg-pink select-none cursor-pointer hover:bg-pink-light border active:border-pink active:text-pink active:bg-transparent block text-white rounded px-2 py-1 text-center transition-colors"
+              class="block px-2 py-1 text-center text-white transition-colors border rounded cursor-pointer select-none bg-pink hover:bg-pink-light active:border-pink active:text-pink active:bg-transparent"
             >
               {{ cta.label }}
             </component>
@@ -39,7 +39,7 @@
       </ul>
     </section>
   </main>
-  <footer class="pt-4 pb-3 px-2 text-white text-xs font-italic text-center">
+  <footer class="px-2 pt-4 pb-3 text-xs text-center text-white font-italic">
     <p>All features of PurpleFox are completely free to use, thanks to our supportive community.</p>
     <p>
       If you'd like to contribute and help us grow, consider supporting us on
